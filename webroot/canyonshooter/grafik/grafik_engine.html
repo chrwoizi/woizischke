@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 1.1 Grafik-Engine</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 1 Grafik
+        - 1.1 Grafik-Engine
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>1.1 Grafik-Engine</h3>
+            <p class="margin">
+                Alle Objekte in der Welt der Computerspiele bestehen aus einer Menge von Dreiecken. Der Canyon wird zur Laufzeit generiert. Alle
+                anderen Objekte werden aus sogenannten Model-Dateien geladen. Daf&uuml;r stellt
+                <a href="http://de.wikipedia.org/wiki/XNA_%28Microsoft%29">XNA</a> eine Funktion zu Verf&uuml;gung, mit der das
+                FBX-Dateiformat von <a href="http://de.wikipedia.org/wiki/Autodesk">Autodesk</a> gelesen werden kann. Um mehr Kontrolle &uuml;ber
+                das Aussehen der Oberfl&auml;chen zu erlangen, musste allerdings ein Teil der von XNA generierten Daten mit eigenen Daten
+                &uuml;berschrieben werden.
+            </p>
+            <p class="margin">
+                Die Oberfl&auml;chen basieren haupts&auml;chlich auf eigens f&uuml;r das Spiel angefertigten Programmen, die auf der Grafikkarte
+                ausgef&uuml;hrt werden, sog. &bdquo;<a href="http://de.wikipedia.org/wiki/Shader">Shader</a>&ldquo;.  Die Shader sind im FX-Format
+                geschrieben, weil dieses von XNA besonders gut
+                unterst&uuml;tzt wird. Insgesamt gibt es drei Basistypen f&uuml;r Oberfl&auml;chen: Farbe, Textur und Drahtgitter. Der aufwendige Teil
+                der Programmierung ist aber die Beleuchtung dieser Oberfl&auml;chentypen. Je nach Rechenleistung des PCs stehen unterschiedliche
+                Detailstufen zur Verf&uuml;gung:
+            </p>
+            <ul class="normallist">
+                <li>
+                    Beleuchtung auf <a href="http://de.wikipedia.org/wiki/Vertex">Vertex</a>-Ebene <br />
+                    F&uuml;r jeden Punkt eines Dreiecks wird die Lichtst&auml;rke und Farbe berechnet. Diese Werte werden dann von der Grafikkarte
+                    innerhalb des Dreiecks <a href="http://de.wikipedia.org/wiki/Interpolation">interpoliert</a>.
+                </li>
+                <li>
+                    Beleuchtung auf <a href="http://de.wikipedia.org/wiki/Pixel">Pixel</a>-Ebene <br />
+                    F&uuml;r jeden Pixel wird die Lichtst&auml;rke und die Farbe berechnet
+                </li>
+            </ul>
+            <p class="margin">
+                F&uuml;r die Berechnung der Lichtst&auml;rke wird das
+                <a href="http://de.wikipedia.org/wiki/Blinn-Beleuchtungsmodell">Blinn-Phong-Modell</a> benutzt.
+            </p>
+            <p class="margin">
+                Mit diesem Modell kann man aber nur f&uuml;r jedes Objekt einzeln die Beleuchtung berechnen. Das Zusammenspiel der Objekte wird dabei
+                nicht ber&uuml;cksichtigt, d. h. es gibt keinen Schattenwurf. Daf&uuml;r gibt es zus&auml;tzliche Techniken, wie zum Beispiel das
+                &bdquo;<a href="http://de.wikipedia.org/wiki/Shadow_Mapping">Shadow Mapping</a>&ldquo;, welches wir f&uuml;r den CanyonShooter
+                benutzen. Dabei wird die Szene aus der Sicht des Lichts in eine
+                Textur gerendert. In der Textur werden dann aber nicht die Farbinformationen gespeichert, sondern die Tiefeninformationen. Das bedeutet,
+                dass die Textur die Abst&auml;nde bestimmter Pixel zur Lichtquelle enth&auml;lt. Wenn die Szene nun aus der Sicht des Spielers gerendert
+                wird, werden diese Informationen verwendet, um die Objekte zu schattieren.
+            </p>
+            <p class="margin">
+                Da die Beleuchtung ma&szlig;geblich von den <a href="http://de.wikipedia.org/wiki/Normale">Oberfl&auml;chennormalen</a>
+                abh&auml;ngt, verwenden wir f&uuml;r den Canyon das sogenannte
+                &bdquo;<a href="http://de.wikipedia.org/wiki/Normal_Mapping">Normal-Mapping</a>&ldquo;. Darunter versteht man eine Technik bei der
+                die Oberfl&auml;chennormalen aus einer Textur geladen werden,
+                anstatt sie durch das <a href="http://de.wikipedia.org/wiki/Kreuzprodukt">Kreuzprodukt</a> zweier Kanten zu berechnen. Somit ist die
+                Normale (und dadurch die Beleuchtung) innerhalb eines Dreieckes unterschiedlich und es ergibt sich eine scheinbar h&ouml;here
+                Detailstufe der Geometrie.
+            </p>
+            <p class="margin">
+                Weil die Lichtberechnung vor allem wegen der Schattenberechnung sehr aufwendig ist, m&uuml;ssen in der Anzahl der Lichter Abstriche
+                gemacht werden. Die Hauptlichtquelle des CanyonShooters ist die Sonne. Sie strahlt von oben in parallelen Strahlen herab und alle
+                Objekte werfen in diesem Licht einen Schatten, der in Wirklichkeit aus zwei Schatten besteht. Aufgrund des
+                verwendeten Shadow-Mapping ist es nicht m&ouml;glich die Schatten der gesamten Welt auf einmal zu berechnen, weil die
+                Aufl&ouml;sung der Shadow-Map nicht sehr gro&szlig; sein darf. Darum gibt es in der Ferne eine Shadow-Map mit niedriger Aufl&ouml;sung
+                und in der N&auml;he des Spielers eine mit hoher Aufl&ouml;sung. Zwischen diesen beiden Schatten wird an der Schnittkante interpoliert.
+                Die Shadow-Maps fliegen mit dem Spieler durch den Canyon. Hinter dem Spieler wird kein Schatten berechnet, weil der Spieler diesen
+                sowieso nicht sehen w&uuml;rde.
+                Zus&auml;tzlich zum Sonnenlicht gibt es bis zu f&uuml;nf Punktlichtquellen, die das Feuer der Raketen simulieren sollen. Diese Lichter
+                strahlen in alle Richtungen bis zu einer bestimmten Distanz. Eine Schattenberechnung w&auml;re f&uuml;r Punktlichtquellen viel
+                aufwendiger, als f&uuml;r das Sonnenlicht. Der Effekt des Schattens w&auml;re aber kaum sp&uuml;rbar, da die Lichter nicht sehr weit
+                scheinen. Darum haben wir uns entschlossen, die Schattenberechnung auf das Sonnenlicht zu
+                beschr&auml;nken.
+            </p>
+            <p class="margin">
+                Der CanyonShooter verf&uuml;gt &uuml;ber zwei Post-Processing Effekte. Zum Einen gibt es den sogenannten Bloom-Filter, durch den
+                das Bild nat&uuml;rlicher erscheint. Starke Lichtquellen scheinen, wie in der Natur, &uuml;ber die Kanten der Objekte hinaus.
+                Dieser Effekt stammt aus der Sammlung der XNA-Samples von <a href="http://de.wikipedia.org/wiki/Microsoft">Microsoft</a>. Die
+                Funktionsweise ist wie folgt: Von dem erstellten Bild
+                der Spielwelt wird ein Schnappschuss erstellt und aus diesem die dunklen Teile entfernt. Die verbleibenden Teile werden durch
+                einen Gau&szlig;schen Weichzeichnungsfilter &bdquo;verwischt&ldquo; und auf das Ausgangsbild addiert.
+                Ein zweiter Post-Processing Effekt wurde aus diesem XNA-Beispiel abgeleitet. Wenn man im Spiel den Booster aktiviert, verwischt
+                das Bild zu den Kanten hin und die S&auml;ttigung verringert sich. Daf&uuml;r wird zun&auml;chst, wie beim Bloom-Filter, eine
+                verwischte Version der aktuellen Szene erstellt. Dies geschieht durch einen radialen Weichzeichner, der das Bild von der Mitte
+                aus zu den Kanten hin verwischt. Im zweiten Schritt wird dieses verwischte Bild mit dem Ausgangsbild vermischt. In der Mitte wird
+                das Ausgangsbild verwendet und am Bildrand das verwischte Bild. Dazwischen wird interpoliert.
+            </p>
+            <p class="margin">
+                Ein weiterer grafischer Effekt ist der Nebel. Er zeigt sich unterhalb einer bestimmten Ebene und in einer bestimmten Entfernung.
+                F&uuml;r die Berechnung des Nebels in der Entfernung wird die Distanz zwischen Canyon und Kamera betrachtet. F&uuml;r den Nebel
+                unterhalb einer bestimmten Ebene wird f&uuml;r jeden Pixel ein Strahl von der Kamera durch die Ebene auf den Canyon erstellt und die Distanz
+                zwischen dem Schnittpunkt mit der Ebene und dem Schnittpunkt mit dem Canyon als Intensit&auml;t des Nebels verwendet.
+            </p>
+            <p class="margin">
+                Der Himmel im Spiel wird durch eine Skybox realisiert. Dies ist eine einfache Box im Hintergrund, auf die eine Textur gelegt wird.
+            </p>
+            <p class="margin">
+                F&uuml;r die Darstellung von vielen kleinen Objekten, die als Dekoration dienen, sowie f&uuml;r die Darstellung von
+                Laser-Projektilen, wird das <a href="http://de.wikipedia.org/wiki/Interlacing_%28Grafiken%29">Instancing</a>-Verfahren benutzt.
+                Dabei wird f&uuml;r jeden Objekttyp nur ein Aufruf an die <a href="http://de.wikipedia.org/wiki/DirectX">DirectX</a>-API
+                gemacht um eine gro&szlig;e Anzahl an Objekten mit gleichem Aussehen und unterschiedlicher Position gleichzeitig anzuzeigen.
+                W&uuml;rde man eine so gro&szlig;e Anzahl an Objekten mit jeweils einem DirectX-API-Aufruf darstellen, w&uuml;rde das Spiel
+                weniger fl&uuml;ssig laufen.
+            </p>
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 1 Grafik
+                            <ul class="content_dir">
+                                <li> <b>1.1 Grafik-Engine</b> </li>
+                                <li> <a href="heightmapping.html">1.2 Heightmapping</a> </li>
+                                <li> <a href="partikelsystem.html">1.3 Partikelsystem</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 4.3 Level</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 4 Canyon-Generierung & Level Editor
+        - 4.3 Level
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>4.3 Level</h3>
+            <p class="margin">
+				Das Level ist in Bl&ouml;cke unterteilt. Dabei besitzt jeder Block Eigenschaften wie das Relief des Canyons und
+				in welche Richtung der Canyon im n&auml;chsten Block weiter f&uuml;hrt. Letzteres erm&ouml;glicht die Modellierung 
+				von Kurven, Steigungen usw.
+				Dazu kann man den einzelnen Bl&ouml;cken weitere Objekte anheften. Diese k&ouml;nnen Gegner,
+				Gesch&uuml;tzt&uuml;rme, Powerups, Spezialeffekte und dergleichen sein. Das Levelformat ist modular
+				aufgebaut, sodass jederzeit neue Objekttypen hinzukommen k&ouml;nnen, die z. B. beim Entwurf des Formats noch
+				nicht bedacht wurden.
+				S&auml;mtliche Daten des Levels werden in <a href="http://de.wikipedia.org/wiki/Extensible_Markup_Language">XML</a> gespeichert.
+				Aus den gespeicherten Daten werden dann im Spiel von der Level Klasse automatisch weitere Werte errechnet die
+				von anderen Klassen ben&ouml;tigt werden. So wird unter anderem die absolute Position aller Elemente 
+				und bei jedem Segment&uuml;bergang eine Ebene errechnet. Die Berechnung der Ebene wird beispielsweise ben&ouml;tigt
+				um festzustellen, in welchem Segment der Spieler sich gerade aufh&auml;lt. Die Level Klasse stellt ebenfalls
+				viele weitere mathematische Funktionen zur Verf&uuml;gung, um anderen Klassen die Arbeit auf dem Canyon zu erleichtern.
+			</p>
+
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 4 Canyon-Generierung & Level Editor
+                            <ul class="content_dir">
+                                <li> <a href="world_gamestates.html">4.1 World & GameStates</a> </li>
+                                <li> <a href="canyon.html">4.2 Canyon</a> </li>
+                                <li> <b>4.3 Level</b> </li>
+                                <li> <a href="leveleditor.html">4.4 Leveleditor</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>

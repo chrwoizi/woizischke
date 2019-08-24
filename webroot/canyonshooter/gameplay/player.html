@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 3.2 Player</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 3 Gameplay
+        - 3.2 Player
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>3.2 Player</h3>
+            <table class="figures" style="float: right;">
+                <tr>
+                    <td align="center">
+                        <a href="pics/PlayerPerspective.png" class="thickbox" rel="player" title="(a) Player 2 Perspektive">
+                            <img src="pics/PlayerPerspective_small.jpg" alt="(a) Player 2 Perspektive">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        (a) Player 2 Perspektive
+                    </td>
+                </tr>
+                <tr height="20px">
+                    <td></td>
+                <tr>
+                    <td align="center">
+                        <a href="pics/PlayerSteuerung.png" class="thickbox" rel="player" title="(a) Player 2 Steuerung">
+                            <img src="pics/PlayerSteuerung_small.jpg" alt="(a) Player 2 Steuerung">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        (b) Player 2 Steuerung
+                    </td>
+                </tr>
+            </table>
+            <p class="margin">
+                Die Aufgabe des Spielers (Player) ist die Steuerung eines Raumschiffs durch einen Canyon. F&uuml;r die urspr&uuml;ngliche Sicht
+                des Spielers wurde eine Kameraeinstellung gew&auml;hlt, die einer Filmdarstellung &auml;hnelt. Die Kamera ist dabei nicht
+                an den Bewegungen des Raumschiffs gebunden, sondern fliegt auf einem unabh&auml;ngigen Pfad hinter dem Raumschiff her.
+            </p>
+            <p class="margin">
+                Diese Perspektive vermittelte jedoch nicht den erhofften Spielspa&szlig;. Deshalb wurde die Steuerung und Kameraeinstellung
+                neu entwickelt. Die Abbildung (a) veranschaulicht die Kameraperspektive des neu entwickelten
+                Spielers (Player 2).
+            </p>
+            <p class="margin">
+                F&uuml;r die Neuentwicklung wurden folgende Kriterien festgelegt:
+            </p>
+            <ul	 class="normallist">
+                <li>Third-person Perspektive</li>
+                <li>Kameraf&uuml;hrung ist abh&auml;ngig von den Bewegungen des Spielers</li>
+                <li>Realistische Flugbewegung des Raumschiffs durch Bewegungstransformation</li>
+            </ul>
+            <p class="margin">
+                Die Bewegungstransformationen des Raumschiffs beinhalten die Ver&auml;nderung des horizontalen und vertikalen Winkels bei
+                Bewegungen mit der Maus. Anders als bei der urspr&uuml;nglichen Entwicklung wird demnach nicht mehr mit der Maus gezielt.
+                Aufgrund der Kameraf&uuml;hrung ist dies auch nicht mehr notwendig. Die Waffen feuern in Richtung der Kamera und zielen
+                auf den Mittelpunkt der Perspektive. Dort wurde auch das Fadenkreuz platziert. Zudem ist es m&ouml;glich Seitw&auml;rtsbewegungen
+                durch die Links-/Rechts-Steuerung auszuf&uuml;hren (engl. pan). Das Raumschiff l&auml;sst sich durch die Vorw&auml;rtssteuerung
+                beschleunigen und durch die R&uuml;ckw&auml;rtssteuerung abbremsen.
+            </p>
+            <p class="margin">
+                Durch diese Entwicklung konnte der Spielspa&szlig; deutlich gesteigert werden. Die Abbildung (b) bildet die Steuerung des
+                Spielers ab.
+            </p>
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 3 Gameplay
+                            <ul class="content_dir">
+                                <li> <a href="story.html">3.1 Story</a> </li>
+                                <li> <b>3.2 Player</b> </li>
+                                <li> <a href="enemies.html">3.3 Enemies & AI State Machine</a> </li>
+                                <li> <a href="weapons_items.html">3.4 Weapon & Items</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 5.6 HUD</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 5 User Interface
+        - 5.6 HUD
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>5.6 HUD</h3>
+            <h4>Allgemeines</h4>
+            <p class="margin">
+                Das HUD (<a href="http://de.wikipedia.org/wiki/Head-Up-Display">head-up display</a>) im Spiel hat zwei wesentliche Aufgaben.
+                Zum einen, den Spieler mit wertvollen Informationen wie Lebenspunkte und
+                Schild, Treibstoff, Waffen und Munition, Punkte, etc. zu versorgen. Die andere wesentliche Aufgabe ist, dem Spiel mehr
+                Spieltiefe zu verleihen. Zum einen durch die Optik des HUDs, "Es sollte sich anf&uuml;hlen, als s&auml;&szlig;e man in einem
+                Cockpit", und durch die Spiel-Features wie die Super-Boost-Anzeige.
+            </p>
+
+
+            <p class="margin">
+                Wird die Super-Boost-Anzeige zu hei&szlig;, f&auml;ngt die sie an rot zu blinken, und warnt davor, dass das Raumschiff
+                kurz vor der Explosion steht. Der Spieler wird von einem Intercom (oben links) unterst&uuml;tz, das vor Gegnern warnt,
+                oder Informationen dar&uuml;ber gibt, welche Gegenst&auml;nde man eingesammelt hat. Ein besonderes kleines Feature ist
+                dabei, das der Text
+                durch die Microsoft-Speech Engine vorgelesen wird.
+            </p>
+
+            <h4>Technische Details</h4>
+
+            <table class="figures" style="float: right">
+                <tr>
+                    <td align="center">
+                        <a href="pics/cd_hud.jpg" class="thickbox" rel="hud" Title="(a) HUD UML-Klassendiagramm">
+                            <img src="pics/cd_hud.jpg" alt="(a) HUD UML-Klassendiagramm">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"> (a) HUD UML-Klassendiagramm </td>
+                </tr>
+            </table>
+
+            <p class="margin">
+				Das Erstellte HUD umfasst mehrere umfangreiche Features, die das Darstellen von Text und Grafiken erlauben. Sowohl
+				die Text- als auch die Grafikelemente erben von einer <i>HudControl</i> Klasse, in der die Bewegung und die
+				Effekte der Elemente geregelt wird. M&ouml;gliche Effekttypen sind:
+			</p>
+            <ul class="normallist">
+                <li>Grow (Wachsen) </li>
+                <li>Shrink (Schrumpfen) </li>
+                <li>Shakkle (Wackeln) </li>
+                <li>Pulse (Pulsieren) </li>
+                <li>FadeIn (Einfaden) </li>
+                <li>FadeOut (Ausfaden) </li>
+            </ul>
+            <p class="margin">
+				Zusammen mit dem Start- und Endpunkt eines Elementes, sowie der Lebensdauer wird die aktuelle Position der
+				Elemente berechnet und der zugeh&ouml;rige Effekt benutzt. Bei nichtbewegten Elementen stimmten Start-
+				und Zielposition einfach &uuml;berein, die Berechnung der Position wird ausgesetzt. Zus&auml;tzlich zu diesen
+				Informationen kann jedem Textelement eine Farbe sowie ein Text (Wahlweise ein statischer string oder
+				ein dynamisches Property). Analog geh&ouml;rt zu jedem Grafikelement die Textur. Als kleines Extra ist es
+				m&ouml;glich den sichtbaren Bereich einer Textur zu "beschneiden". So ist es m&ouml;glich Zahlenwerte als Balken
+				darzustellen. Auf dem Folgenden Bild sind die wichtigsten Zonen des HUD gekennzeichnet (einfach mit der Maus &uuml;ber
+				das Bild fahren).
+            </p>
+            <table class="figures">
+                <tr>
+                    <td align="center">
+                        <img src="pics/hud.jpg" alt="(b) HUD" usemap="#HUDMap" style="border:0px"/>
+                        <map name="HUDMap">
+                            <area shape="rect" coords="380,0,640,50" href="#HUD" alt="alternative" title="Highscore">
+                            <area shape="rect" coords="6,420,34,505" href="#HUD" alt="alternative" title="Lebensenergie des Spielers">
+                            <area shape="rect" coords="34,420,75,504" href="#HUD" alt="alternative" title="Schild vom Spieler">
+                            <area shape="rect" coords="0,61,10,338" href="#HUD" alt="alternative" title="Energie">
+                            <area shape="rect" coords="89,475,188,490" href="#HUD" alt="alternative" title="Booster">
+                            <area shape="rect" coords="191,473,432,509" href="#HUD" alt="alternative" title="Waffen mit Munition">
+                            <area shape="rect" coords="445,471,591,505" href="#HUD" alt="alternative" title="Aktive Waffen">
+                            <area shape="rect" coords="596,471,628,505" href="#HUD" alt="alternative" title="Leben">
+
+                            <area shape="rect" coords="274,50,357,255" href="#HUD" alt="alternative" title="Scrollender Text">
+                            <area shape="rect" coords="90,442,162,461" href="#HUD" alt="alternative" title="Geschwindigkeit">
+                        </map>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"> (b) HUD </td>
+                </tr>
+            </table>
+
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 5 User Interface
+                            <ul class="content_dir">
+                                <li> <a href="menu.html">5.1 Men&uuml;</a> </li>
+                                <li> <a href="profile.html">5.2 Profile</a> </li>
+                                <li> <a href="modellauswahl.html">5.3 Modellauswahl</a> </li>
+                                <li> <a href="highscore.html">5.4 Highscore</a> </li>
+                                <li> <a href="credits.html">5.5 Credits</a> </li>
+                                <li> <b>5.6 HUD</b> </li>
+                                <li> <a href="konsole.html">5.7 Konsole</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>

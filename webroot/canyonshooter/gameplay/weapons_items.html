@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 3.4 Weapons & Items</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 3 Gameplay
+        - 3.4 Weapons & Items
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>3.4 Weapons & Items</h3>
+            <h4>Weapons</h4>
+            <p class="margin">
+                Im Canyonshooter gibt es vier verschiedene Waffen:
+            </p>
+            <ul class="normallist">
+                <li>UltraPhaser</li>
+                <li>Stinger Rockets</li>
+                <li>Minigun</li>
+                <li>PlasmaGun</li>
+            </ul>
+            <p class="margin">
+                Alle Waffen im Canyonshooter sind per <a href="http://de.wikipedia.org/wiki/Extensible_Markup_Language">XML</a>
+                konfigurierbar und basieren auf einer BaseWeapon
+                <a href="http://de.wikipedia.org/wiki/Klasse_%28objektorientierte_Programmierung%29">Klasse</a> die einheitlich pro
+                Waffenbesitzer von einem Weapon-Manager verwaltet werden. Der Weapon-Manager verwaltet die Bewaffnung, Munition und
+                Auswahl der Prim&auml;r- und Sekund&auml;rwaffen. Er k&uuml;mmert sich um die Positionierung der Waffen am Spieler-Modell
+                und bietet ein einfaches Interface zum Zugriff auf die vorhanden Waffen.
+            </p>
+            <p class="margin">
+                Der Weapon Manager kann jedem GameObject zugewiesen werden. Zum Beispiel dem Spieler, den Enemies oder sogar einem Projektil,
+                wenn man m&ouml;chte.
+            </p>
+            
+            <h4>Items</h4>
+            <p class="margin">
+                Die Items im Spiel sind 3D-Objekte die entweder im Level herumliegen oder von den Enemies fallen gelassen werden, nachdem
+                diese abgeschossen wurden. Welche Items, wie viele und mit welcher Wahrscheinlichkeit diese verloren werden, wird
+                im <a href="../generation_editor/leveleditor.html">Leveleditor</a> konfiguriert. Eine
+                Zentrale Items-Klasse verwaltet die Handlungen, die je nach Konfiguration der Items zu tun sind. Der Weapon-Manager
+                bietet eine Schnittstelle zur Aufnahme von Munition und Waffen, der Player eine Schnittstelle um Lebenspunkte, Schild
+                und Treibstoff, sowie Extraleben hinzuzuf&uuml;gen. Diese werden dann je nach Art des Items mit dem definierten Wert
+                aufgerufen.
+            </p>
+
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 3 Gameplay
+                            <ul class="content_dir">
+                                <li> <a href="story.html">3.1 Story</a> </li>
+                                <li> <a href="player.html">3.2 Player</a> </li>
+                                <li> <a href="enemies.html">3.3 Enemies & AI State Machine</a> </li>
+                                <li> <b>3.4 Weapon & Items</b> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>
