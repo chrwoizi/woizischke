@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <!-- base href="http://www.cg.cs.tu-bs.de/teaching/lab/ss08/teamproject/"/ -->
+    <title>Teamprojekt Canyonshooter - 4.1 World & GameStates</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="../js/jquery-latest.js"></script>
+	<script type="text/javascript" src="../js/thickbox.js"></script>
+
+    <link rel="StyleSheet" href="../css/cgstyle.css" type="text/css">
+</head>
+
+<body>
+	<div id="cg_body_margin">
+        <table class="header" width="100%" cellspacing="0" border="0" cellpadding="0" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <a id="cgl" class="title" href="index.html">Computer Graphics</a>
+                    <a id="uf" href="http://www.tu-braunschweig.de" class="title">TU Braunschweig</a>
+                </td>
+                <td align="right" width="20"></td>
+            </tr>
+        </table>
+
+
+        <br><br>
+
+        <!-- ************** Start of your website ****************-->
+
+        <!-- ************** Teaser images ****************-->
+
+        <a href="../index.html" class="footer">Canyonshooter</a>
+        - 4 Canyon-Generierung & Level Editor
+        - 4.1 World & GameStates
+
+        <div class="margin">
+            <h2>Teamprojekt Canyonshooter</h2>
+
+            <h3>4.1 World & GameStates</h3>
+            <h4>World</h4>
+            <p class="margin">
+				Die World verwaltet alle Spielobjekte. So ist die World beispielsweise daf&uuml;r verantwortlich, dass der
+				Canyon mit s&auml;mtlichen Objekten in einem Stream geladen und erst zur Laufzeit erstellt wird. Dabei beobachtet
+				die World die Position des Spielers, und errechnet daraus wie viele Segmente des Levels geladen werden m&uuml;ssen.
+				Ebenfalls sorgt sie daf&uuml;r, dass hinter dem Spieler wieder alles aufger&auml;umt, also entfernt wird. Die
+				World ist auch f&uuml;r Elemente wie die Skybox und dynamische Lichtquellen verantwortlich. &Uuml;berall wo also
+				eine Spielwelt ben&ouml;tigt wird, ist die World zur Stelle.
+            </p>
+
+
+            <h4 id="gamestates">GameStates</h4>
+            <p class="margin">
+				Das Spiel verf&uuml;gt weiterhin &uuml;ber eine Statemachine. Mit ihr ist es sehr leicht m&ouml;glich von einem Spielzustand in
+				einen Anderen zu wechseln. So reicht beispielsweise ein Aufruf von "SetStateMenu()" und die Statemachine &uuml;bernimmt
+				s&auml;mtliche Arbeit um das aktuell Angezeigte zu entladen, und das Hauptmen&uuml; zu laden und anzuzeigen. Ein anderer
+				Aufruf w&auml;re beispielsweise "SetStateGame(levelname)" um das Hauptspiel mit dem angegebenen Level zu starten.
+				Weiterhin k&uuml;mmert sich die Statemachine um den Tastatur Fokus. Damit nicht alle geladenen Klassen auf
+				alle Tastatureingaben reagieren besitzt die Statemachine die Tastatur Fokus Funktionalit&auml;t. Man m&ouml;chte
+				schlie&szlig;lich nicht, dass das Raumschiff sich bewegt oder Waffen abfeuert, wenn man etwas in die 
+				<a href="../user_interface/konsole.html">Konsole</a> eingibt.
+				Weiterhin besitzt die Statemachine eine GarbageCollection. Sollten irgendwelche Objekte versehentlich
+				nicht aufger&auml;umt werden, so werden sie sp&auml;testens beim &Uuml;bergang in einen anderen Zustand dennoch bereinigt.
+			</p>
+
+
+            <h3>Das aktuelle Kapitel</h3>
+            <ul class="content_dir">
+                <li> <a href="../index.html">Inhaltsverzeichnis</a>
+                    <ul class="content_dir">
+                        <li> 4 Canyon-Generierung & Level Editor
+                            <ul class="content_dir">
+                                <li> <b>4.1 World & GameStates</b> </li>
+                                <li> <a href="canyon.html">4.2 Canyon</a> </li>
+                                <li> <a href="level.html">4.3 Level</a> </li>
+                                <li> <a href="leveleditor.html">4.4 Leveleditor</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- ************** End of your website ****************-->
+        <br>
+        <br>
+
+        <p id="bottom">
+            <br>
+            <a href="http://www.tu-braunschweig.de" class="footer">TU Braunschweig</a>
+            - <a href="http://www.cs.tu-bs.de" class="footer">Fakult&auml;t f&uuml;r Mathematik und Informatik</a>
+            - <a href="http://www.cg.cs.tu-bs.de/index.html" class="footer">Computer Graphics</a> - Teamprojekt Canyonshooter
+        </p>
+    </div>
+</body>
+</html>
