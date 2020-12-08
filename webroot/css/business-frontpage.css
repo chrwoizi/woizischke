@@ -4,52 +4,56 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-business-frontpage/blob/master/LICENSE)
  */
 body {
-  padding-top: 56px;
+    padding-top: 56px;
 }
 
 .btn {
-	margin-right: 5px;
-	margin-bottom: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 small.industry {
-	color: white;
-	padding-left: 4px;
-	padding-right: 4px;
-	padding-bottom: 2px;
-	float: right;
-	background-color: #AAA;
-	margin-left: 4px;
+    color: white;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+    float: right;
+    background-color: #aaa;
+    margin-left: 4px;
 }
 
 small.gaming {
-	background-color: #DB8C5E;
+    background-color: #db8c5e;
 }
 
 small.finance {
-	background-color: #5DADD8;
+    background-color: #5dadd8;
 }
 
 small.travel {
-	background-color: #D15E5E;
+    background-color: #d15e5e;
 }
 
 small.socialmedia {
-	background-color: #BD5DD3;
+    background-color: #bd5dd3;
 }
 
 small.visualization {
-	background-color: #DB8C5E;
+    background-color: #db8c5e;
 }
 
 small.insurance {
-	background-color: #5BCCA4;
+    background-color: #5bcca4;
 }
 
 small.vehicle {
-	background-color: #79CC5B;
+    background-color: #79cc5b;
 }
 
 small.crm {
-	background-color: #AAA;
+    background-color: #aaa;
+}
+
+.card-img-top {
+    border-bottom: 1px solid #eee;
 }
