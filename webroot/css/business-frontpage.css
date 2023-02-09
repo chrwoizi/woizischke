@@ -34,6 +34,14 @@ small.travel {
     background-color: #d15e5e;
 }
 
+small.retail {
+    background-color: #458d47;
+}
+
+small.ai {
+    background-color: #1c1c2a;
+}
+
 small.socialmedia {
     background-color: #bd5dd3;
 }
@@ -43,7 +51,7 @@ small.visualization {
 }
 
 small.insurance {
-    background-color: #5bcca4;
+    background-color: #5bc8cc;
 }
 
 small.vehicle {
